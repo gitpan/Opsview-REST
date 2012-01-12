@@ -1,6 +1,6 @@
-package Opsview::REST::Downtime;
+package Opsview::REST::Event;
 {
-  $Opsview::REST::Downtime::VERSION = '0.002';
+  $Opsview::REST::Event::VERSION = '0.002';
 }
 
 use Moose;
@@ -8,7 +8,7 @@ use namespace::autoclean;
 
 has base => (
     is       => 'ro',
-    default  => '/downtime',
+    default  => '/event',
     init_arg => undef,
 );
 
@@ -30,18 +30,22 @@ __END__
 
 =head1 NAME
 
-Opsview::REST::Status - Convenience object to transform its attributes into a /downtime URL endpoint
+Opsview::REST::Event - Convenience object to transform its attributes into a /event valid query
 
 =head1 SYNOPSIS
 
-    use Opsview::REST::Downtime;
+    use Opsview::REST::Event;
 
-    my $dwnt = Opsview::REST::Downtime->new();
-    $dwnt->as_string; # '/downtime'
+    my $event = Opsview::REST::Event->new(
+        host      => [qw/ hostA hostB /], 
+        startTime => '2012-01-12 19:42:22'
+    );
+    
+    $event->as_string; # '/event?startTime=2012-01-12%2019:42:22&host=hostA&host=hostB'
 
 =head1 DESCRIPTION
 
-You shouldn't be calling this directly, but be using the "downtime" method in L<Opsview::REST>.
+You shouldn't be calling this directly, but be using the "events" method in L<Opsview::REST>.
 
 =head1 AUTHOR
 

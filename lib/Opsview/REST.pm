@@ -1,28 +1,47 @@
 package Opsview::REST;
 {
-  $Opsview::REST::VERSION = '0.001';
+  $Opsview::REST::VERSION = '0.002';
 }
 
 use Moose;
 use namespace::autoclean;
 
+use Carp;
 use Opsview::REST::Exception;
 
 with 'Opsview::REST::APICaller';
 
-has ['user', 'pass', 'base_url'] => (
+has [qw/ user base_url /] => (
     is       => 'ro',
     isa      => 'Str',
     required => 1,
 );
 
+has [qw/ pass auth_tkt /] => (
+    is  => 'ro',
+    isa => 'Str',
+);
+
 sub BUILD {
     my ($self) = @_;
     
-    my $r = $self->post('/login', {
-        username => $self->user,
-        password => $self->pass,
-    });
+    my $r;
+    if (defined $self->pass) {
+        $r = $self->post('/login', {
+            username => $self->user,
+            password => $self->pass,
+        });
+
+    } elsif (defined $self->auth_tkt) {
+        $self->headers->{'Cookie'} = 'auth_tkt=' . $self->auth_tkt . ';';
+        $r = $self->post('/login_tkt', { username => $self->user });
+
+        # Clean the cookie as this is not required anymore
+        delete $self->headers->{'Cookie'};
+
+    } else {
+        croak "Need either a pass or an auth_tkt";
+    }
 
     $self->headers->{'X-Opsview-Username'} = $self->user;
     $self->headers->{'X-Opsview-Token'}    = $r->{token};
@@ -35,6 +54,16 @@ sub status {
 
     require Opsview::REST::Status;
     my $uri = Opsview::REST::Status->new(@_);
+
+    return $self->get($uri->as_string);
+}
+
+# Event
+sub events {
+    my $self = shift;
+
+    require Opsview::REST::Event;
+    my $uri = Opsview::REST::Event->new(@_);
 
     return $self->get($uri->as_string);
 }
@@ -62,6 +91,17 @@ sub create_downtime {
 sub delete_downtime {
     my $self = shift;
     return $self->delete($self->_downtime(@_));
+}
+
+# Reload
+sub reload {
+    my $self = shift;
+    return $self->post('/reload');
+}
+
+sub reload_info {
+    my $self = shift;
+    return $self->get('/reload');
 }
 
 __PACKAGE__->meta->make_immutable;
@@ -116,9 +156,20 @@ Base url where the REST API resides. By default it is under C</rest>.
 
 =item user
 
+Username to login as.
+
+=back
+
+=head3 Other Arguments
+
+=over 4
+
 =item pass
 
-Username and password needed to login.
+=item auth_tkt
+
+Either the pass or the auth_tkt MUST be passed. It will die horribly if none
+of these are found.
 
 =back
 
@@ -144,6 +195,42 @@ More info: L<http://docs.opsview.com/doku.php?id=opsview-community:restapi:statu
 Downtime related methods.
 
 More info: L<http://docs.opsview.com/doku.php?id=opsview-community:restapi:downtimes>
+
+=head2 events( [ %args ] )
+
+Get events. An event is considered to be either:
+
+=over 4
+
+=item *
+
+a host or service changing state
+
+=item *
+
+a host or service result during soft failures
+
+=item *
+
+a host or service in a failure state where 'alert every failure' is enabled
+
+=back
+
+More info: L<http://docs.opsview.com/doku.php?id=opsview-community:restapi:event>
+
+=head2 reload
+
+Initiates a synchronous reload. Be careful: if your opsview reload takes more
+than 60 seconds to run, this call will time out. The returned data contains
+the info of the reload.
+
+More info: L<http://docs.opsview.com/doku.php?id=opsview-community:restapi#initiating_an_opsview_reload>
+
+=head2 reload_info
+
+Get status of reload.
+
+More info: L<http://docs.opsview.com/doku.php?id=opsview-community:restapi#initiating_an_opsview_reload>
 
 =head1 SEE ALSO
 
