@@ -27,9 +27,10 @@ my %WriteMakefileArgs = (
     "HTTP::Tiny" => "0.014",
     "JSON::XS" => 0,
     "Moose" => 0,
-    "URI" => 0
+    "URI" => 0,
+    "namespace::autoclean" => 0
   },
-  "VERSION" => "0.002",
+  "VERSION" => "0.003",
   "test" => {
     "TESTS" => "t/*.t"
   }

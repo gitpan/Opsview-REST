@@ -1,6 +1,6 @@
 package Opsview::REST::QueryBuilder;
 {
-  $Opsview::REST::QueryBuilder::VERSION = '0.002';
+  $Opsview::REST::QueryBuilder::VERSION = '0.003';
 }
 
 use Moose::Role;
