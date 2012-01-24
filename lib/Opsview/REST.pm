@@ -1,6 +1,6 @@
 package Opsview::REST;
 {
-  $Opsview::REST::VERSION = '0.003';
+  $Opsview::REST::VERSION = '0.004';
 }
 
 use Moose;
@@ -102,6 +102,26 @@ sub reload {
 sub reload_info {
     my $self = shift;
     return $self->get('/reload');
+}
+
+# Acknowledge
+sub _ack {
+    my $self = shift;
+
+    require Opsview::REST::Acknowledge;
+    my $uri = Opsview::REST::Acknowledge->new(@_);
+
+    return $uri->as_string;
+}
+
+sub acknowledge_list {
+    my $self = shift;
+    return $self->get($self->_ack(@_));
+}
+
+sub acknowledge {
+    my $self = shift;
+    return $self->post($self->_ack(@_));
 }
 
 __PACKAGE__->meta->make_immutable;
@@ -217,6 +237,16 @@ a host or service in a failure state where 'alert every failure' is enabled
 =back
 
 More info: L<http://docs.opsview.com/doku.php?id=opsview-community:restapi:event>
+
+=head2 acknowledge( [ %args ] )
+
+Acknowledge problems.
+
+More info: L<http://docs.opsview.com/doku.php?id=opsview-community:restapi:acknowledge>
+
+=head2 acknowledge_list
+
+Lists the problems which the current logged in user has permission to acknowledge.
 
 =head2 reload
 

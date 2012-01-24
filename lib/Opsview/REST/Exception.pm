@@ -1,6 +1,6 @@
 package Opsview::REST::Exception;
 {
-  $Opsview::REST::Exception::VERSION = '0.003';
+  $Opsview::REST::Exception::VERSION = '0.004';
 }
 
 use Moose;

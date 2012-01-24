@@ -1,6 +1,6 @@
 package Opsview::REST::APICaller;
 {
-  $Opsview::REST::APICaller::VERSION = '0.003';
+  $Opsview::REST::APICaller::VERSION = '0.004';
 }
 
 use Moose::Role;

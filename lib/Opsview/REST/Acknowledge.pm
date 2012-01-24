@@ -1,6 +1,6 @@
-package Opsview::REST::Status;
+package Opsview::REST::Acknowledge;
 {
-  $Opsview::REST::Status::VERSION = '0.004';
+  $Opsview::REST::Acknowledge::VERSION = '0.004';
 }
 
 use Moose;
@@ -8,15 +8,18 @@ use namespace::autoclean;
 
 has base => (
     is       => 'ro',
-    default  => '/status/',
+    default  => '/acknowledge',
     init_arg => undef,
 );
 
 with 'Opsview::REST::QueryBuilder';
 
-has '+path' => (
-    required => 1,
-);
+sub BUILDARGS {
+    my $class = shift;
+    return {
+        args => { @_ },
+    };
+}
 
 __PACKAGE__->meta->make_immutable;
 
@@ -27,22 +30,20 @@ __END__
 
 =head1 NAME
 
-Opsview::REST::Status - Convenience object to transform its attributes into a /status URL endpoint
+Opsview::REST::Acknowledge - Convenience object to transform its attributes into an /acknowledge URL endpoint
 
 =head1 SYNOPSIS
 
-    use Opsview::REST::Status;
+    use Opsview::REST::Acknowledge;
 
-    my $status = Opsview::REST::Status->new(
-        'host',
+    my $acknowledge = Opsview::REST::Acknowledge->new(
         host   => [qw/ hostA hostB /], 
-        filter => 'unhandled',
     );
-    $status->as_string; # '/status/host?filter=unhandled&host=hostA&host=hostB'
+    $acknowledge->as_string; # '/acknowledge?host=hostA&host=hostB'
 
 =head1 DESCRIPTION
 
-You shouldn't be calling this directly, but be using the "status" method in L<Opsview::REST>.
+You shouldn't be calling this directly, but be using the "ack" method in L<Opsview::REST>.
 
 =head1 AUTHOR
 
