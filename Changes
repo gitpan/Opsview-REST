@@ -1,3 +1,7 @@
+0.005     2012-10-01 14:17:09 Europe/Madrid
+    - Support for single object configuration
+    - AuthTkt testing improved
+
 0.004     2012-01-24 21:32:35 Europe/Madrid
     - Support for Acknowledges
 

@@ -1,6 +1,6 @@
 package Opsview::REST::Status;
 {
-  $Opsview::REST::Status::VERSION = '0.004';
+  $Opsview::REST::Status::VERSION = '0.005';
 }
 
 use Moose;

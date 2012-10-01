@@ -21,8 +21,4 @@ requires:
   Moose: 0
   URI: 0
   namespace::autoclean: 0
-resources:
-  bugtracker: https://github.com/miquelruiz/Opsview-REST/issues
-  homepage: http://metacpan.org/release/Opsview-REST/
-  repository: git://github.com/miquelruiz/Opsview-REST.git
-version: 0.004
+version: 0.005

@@ -1,6 +1,6 @@
 package Opsview::REST::Event;
 {
-  $Opsview::REST::Event::VERSION = '0.004';
+  $Opsview::REST::Event::VERSION = '0.005';
 }
 
 use Moose;

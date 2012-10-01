@@ -1,6 +1,6 @@
 package Opsview::REST::APICaller;
 {
-  $Opsview::REST::APICaller::VERSION = '0.004';
+  $Opsview::REST::APICaller::VERSION = '0.005';
 }
 
 use Moose::Role;
@@ -57,6 +57,18 @@ sub post {
     $stuff->{content} = $self->json->encode($data) if defined $data;
 
     my $r = $self->ua->post($self->base_url . $method, $stuff);
+    croak $self->_errmsg($r) unless $r->{success};
+
+    return $self->json->decode($r->{content});
+}
+
+sub put {
+    my ($self, $method, $data) = @_;
+
+    my $stuff = { headers => $self->headers };
+    $stuff->{content} = $self->json->encode($data) if defined $data;
+
+    my $r = $self->ua->put($self->base_url . $method, $stuff);
     croak $self->_errmsg($r) unless $r->{success};
 
     return $self->json->decode($r->{content});

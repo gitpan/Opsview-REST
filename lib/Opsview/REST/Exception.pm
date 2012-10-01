@@ -1,6 +1,6 @@
 package Opsview::REST::Exception;
 {
-  $Opsview::REST::Exception::VERSION = '0.004';
+  $Opsview::REST::Exception::VERSION = '0.005';
 }
 
 use Moose;
@@ -13,7 +13,7 @@ use overload
     '""' => sub {
         join ': ',
             join (' ', $_[0]->status, $_[0]->reason),
-            $_[0]->message, $_[0]->detail;
+            $_[0]->message || '', $_[0]->detail || '';
     },
     fallback => 1;
 
