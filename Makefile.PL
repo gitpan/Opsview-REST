@@ -26,11 +26,11 @@ my %WriteMakefileArgs = (
   "PREREQ_PM" => {
     "HTTP::Tiny" => "0.014",
     "JSON::XS" => 0,
-    "Moose" => 0,
+    "Moo" => 0,
     "URI" => 0,
     "namespace::autoclean" => 0
   },
-  "VERSION" => "0.005",
+  "VERSION" => "0.006",
   "test" => {
     "TESTS" => "t/*.t"
   }

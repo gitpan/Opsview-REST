@@ -1,9 +1,9 @@
 package Opsview::REST::APICaller;
 {
-  $Opsview::REST::APICaller::VERSION = '0.005';
+  $Opsview::REST::APICaller::VERSION = '0.006';
 }
 
-use Moose::Role;
+use Moo::Role;
 
 use Carp;
 
@@ -98,7 +98,7 @@ Opsview::REST::APICaller - Role to call the Opsview API
 
 =head1 SYNOPSIS
 
-    use Moose;
+    use Moo;
     with 'Opsview::REST::APICaller';
 
     $self->get($url);

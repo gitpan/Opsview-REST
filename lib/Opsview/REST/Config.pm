@@ -1,16 +1,16 @@
 package Opsview::REST::Config;
 {
-  $Opsview::REST::Config::VERSION = '0.005';
+  $Opsview::REST::Config::VERSION = '0.006';
 }
 
-use Moose;
+use Moo;
 use namespace::autoclean;
 
 use Carp;
 
 has base => (
     is       => 'ro',
-    default  => '/config/',
+    default  => sub { '/config/' },
     init_arg => undef,
 );
 
@@ -26,7 +26,13 @@ my @valid_types = qw/
 /;
 
 sub BUILDARGS {
-    my ($class, $obj_type, $id, @args) = @_;
+    my ($class, $obj_type, @args) = @_;
+
+    croak "object type required" unless $obj_type;
+
+    my $id;
+    $id = shift @args if (scalar @args & 1 == 1);
+    croak "odd number of elements" if (scalar @args & 1 == 1);
 
     if (defined $id) {
         if ($id !~ /^\d+$/) {
@@ -42,7 +48,7 @@ sub BUILDARGS {
         $obj_type = '';
     }
 
-    if (@_ == 1) {
+    if (@args == 1) {
         return {};
     } else {
         my $path = '';

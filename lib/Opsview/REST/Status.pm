@@ -1,14 +1,14 @@
 package Opsview::REST::Status;
 {
-  $Opsview::REST::Status::VERSION = '0.005';
+  $Opsview::REST::Status::VERSION = '0.006';
 }
 
-use Moose;
+use Moo;
 use namespace::autoclean;
 
 has base => (
     is       => 'ro',
-    default  => '/status/',
+    default  => sub { '/status/' },
     init_arg => undef,
 );
 

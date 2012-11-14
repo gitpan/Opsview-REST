@@ -1,9 +1,9 @@
 package Opsview::REST::QueryBuilder;
 {
-  $Opsview::REST::QueryBuilder::VERSION = '0.005';
+  $Opsview::REST::QueryBuilder::VERSION = '0.006';
 }
 
-use Moose::Role;
+use Moo::Role;
 use URI;
 
 requires 'base';
@@ -20,7 +20,7 @@ has path => (
 
 has args => (
     is  => 'ro',
-    isa => 'HashRef',
+    isa => sub { die '"args" must be a hashref' unless ref $_[0] eq 'HASH' },
 );
 
 sub BUILDARGS {
@@ -54,7 +54,7 @@ Opsview::REST::QueryBuilder - Role to transform attributes into a valid method U
 
 =head1 SYNOPSIS
 
-    use Moose;
+    use Moo;
     
     has base => ( default => '/downtime' );
 

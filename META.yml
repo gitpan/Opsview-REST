@@ -9,7 +9,7 @@ build_requires:
 configure_requires:
   ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.300006, CPAN::Meta::Converter version 2.113640'
+generated_by: 'Dist::Zilla version 4.300028, CPAN::Meta::Converter version 2.120921'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -18,7 +18,11 @@ name: Opsview-REST
 requires:
   HTTP::Tiny: 0.014
   JSON::XS: 0
-  Moose: 0
+  Moo: 0
   URI: 0
   namespace::autoclean: 0
-version: 0.005
+resources:
+  bugtracker: https://github.com/miquelruiz/Opsview-REST/issues
+  homepage: http://metacpan.org/release/Opsview-REST/
+  repository: git://github.com/miquelruiz/Opsview-REST.git
+version: 0.006

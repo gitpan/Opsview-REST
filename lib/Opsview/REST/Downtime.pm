@@ -1,14 +1,14 @@
 package Opsview::REST::Downtime;
 {
-  $Opsview::REST::Downtime::VERSION = '0.005';
+  $Opsview::REST::Downtime::VERSION = '0.006';
 }
 
-use Moose;
+use Moo;
 use namespace::autoclean;
 
 has base => (
     is       => 'ro',
-    default  => '/downtime',
+    default  => sub { '/downtime' },
     init_arg => undef,
 );
 

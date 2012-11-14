@@ -1,14 +1,14 @@
 package Opsview::REST::Acknowledge;
 {
-  $Opsview::REST::Acknowledge::VERSION = '0.005';
+  $Opsview::REST::Acknowledge::VERSION = '0.006';
 }
 
-use Moose;
+use Moo;
 use namespace::autoclean;
 
 has base => (
     is       => 'ro',
-    default  => '/acknowledge',
+    default  => sub { '/acknowledge' },
     init_arg => undef,
 );
 

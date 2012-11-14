@@ -1,9 +1,9 @@
 package Opsview::REST::Exception;
 {
-  $Opsview::REST::Exception::VERSION = '0.005';
+  $Opsview::REST::Exception::VERSION = '0.006';
 }
 
-use Moose;
+use Moo;
 
 # Can't use autoclean since it breaks overload:
 # https://github.com/rafl/namespace-autoclean/pull/1

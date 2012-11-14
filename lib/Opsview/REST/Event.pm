@@ -1,14 +1,14 @@
 package Opsview::REST::Event;
 {
-  $Opsview::REST::Event::VERSION = '0.005';
+  $Opsview::REST::Event::VERSION = '0.006';
 }
 
-use Moose;
+use Moo;
 use namespace::autoclean;
 
 has base => (
     is       => 'ro',
-    default  => '/event',
+    default  => sub { '/event' },
     init_arg => undef,
 );
 
