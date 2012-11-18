@@ -1,4 +1,11 @@
+0.007     2012-11-18 20:41:23 Europe/Madrid
+    - Not depending in namespace::autoclean
+    - Support for multiobject config methods
+    - Search suported via get_*s methods
+    - Documentation and synopsis improved
+
 0.006     2012-11-14 03:01:25 Europe/Madrid
+    - Using Moo instead of Moose
     - Support for single object configuration
     - AuthTkt testing improved
 

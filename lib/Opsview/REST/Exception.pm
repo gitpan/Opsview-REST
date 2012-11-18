@@ -1,13 +1,9 @@
 package Opsview::REST::Exception;
 {
-  $Opsview::REST::Exception::VERSION = '0.006';
+  $Opsview::REST::Exception::VERSION = '0.007';
 }
 
 use Moo;
-
-# Can't use autoclean since it breaks overload:
-# https://github.com/rafl/namespace-autoclean/pull/1
-#use namespace::autoclean;
 
 use overload
     '""' => sub {
@@ -20,7 +16,6 @@ use overload
 
 has [qw/status reason/] => (
     is       => 'ro',
-    isa      => 'Str',
     required => 1,
 );
 

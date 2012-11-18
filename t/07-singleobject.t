@@ -6,7 +6,7 @@ use FindBin;
 use lib "$FindBin::Bin/lib";
 use Opsview::REST::TestUtils;
 
-use Test::More tests => 14;
+use Test::More;
 use Test::Exception;
 
 use Data::Dumper;
@@ -17,10 +17,6 @@ my @tests = (
     {
         args => [],
         die  => 'No arguments die',
-    },
-    {
-        args => ['hostgroup'],
-        url  => '/config/hostgroup',
     },
     {
         args => ['hostgroup', 1],
@@ -87,4 +83,4 @@ SKIP: {
 
 }
 
-
+done_testing;

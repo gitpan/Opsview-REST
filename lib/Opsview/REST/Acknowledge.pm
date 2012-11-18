@@ -1,10 +1,9 @@
 package Opsview::REST::Acknowledge;
 {
-  $Opsview::REST::Acknowledge::VERSION = '0.006';
+  $Opsview::REST::Acknowledge::VERSION = '0.007';
 }
 
 use Moo;
-use namespace::autoclean;
 
 has base => (
     is       => 'ro',

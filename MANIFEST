@@ -20,5 +20,6 @@ t/03-downtime.t
 t/04-reload.t
 t/05-events.t
 t/06-acknowledgements.t
-t/07-config.t
+t/07-singleobject.t
+t/08-multiobject.t
 t/lib/Opsview/REST/TestUtils.pm

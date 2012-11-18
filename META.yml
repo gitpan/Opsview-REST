@@ -3,7 +3,6 @@ abstract: 'Interface to the Opsview REST API'
 author:
   - 'Miquel Ruiz <mruiz@cpan.org>'
 build_requires:
-  Apache::AuthTkt: 0
   Test::Exception: 0
   Test::More: 0
 configure_requires:
@@ -20,9 +19,8 @@ requires:
   JSON::XS: 0
   Moo: 0
   URI: 0
-  namespace::autoclean: 0
 resources:
   bugtracker: https://github.com/miquelruiz/Opsview-REST/issues
   homepage: http://metacpan.org/release/Opsview-REST/
   repository: git://github.com/miquelruiz/Opsview-REST.git
-version: 0.006
+version: 0.007

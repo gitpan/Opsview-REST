@@ -1,11 +1,9 @@
 package Opsview::REST::Config;
 {
-  $Opsview::REST::Config::VERSION = '0.006';
+  $Opsview::REST::Config::VERSION = '0.007';
 }
 
 use Moo;
-use namespace::autoclean;
-
 use Carp;
 
 has base => (

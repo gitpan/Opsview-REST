@@ -1,10 +1,9 @@
 package Opsview::REST::Status;
 {
-  $Opsview::REST::Status::VERSION = '0.006';
+  $Opsview::REST::Status::VERSION = '0.007';
 }
 
 use Moo;
-use namespace::autoclean;
 
 has base => (
     is       => 'ro',
