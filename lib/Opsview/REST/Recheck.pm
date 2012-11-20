@@ -1,13 +1,13 @@
-package Opsview::REST::Acknowledge;
+package Opsview::REST::Recheck;
 {
-  $Opsview::REST::Acknowledge::VERSION = '0.008';
+  $Opsview::REST::Recheck::VERSION = '0.008';
 }
 
 use Moo;
 
 has base => (
     is       => 'ro',
-    default  => sub { '/acknowledge' },
+    default  => sub { '/recheck' },
     init_arg => undef,
 );
 
@@ -29,20 +29,20 @@ __END__
 
 =head1 NAME
 
-Opsview::REST::Acknowledge - Convenience object to transform its attributes into an /acknowledge URL endpoint
+Opsview::REST::Recheck - Convenience object to transform its attributes into a /recheck URL endpoint
 
 =head1 SYNOPSIS
 
-    use Opsview::REST::Acknowledge;
+    use Opsview::REST::Recheck;
 
-    my $acknowledge = Opsview::REST::Acknowledge->new(
-        host   => [qw/ hostA hostB /], 
+    my $status = Opsview::REST::Status->new(
+        host   => [qw/ hostA hostB /],
     );
-    $acknowledge->as_string; # '/acknowledge?host=hostA&host=hostB'
+    $status->as_string; # '/status/?host=hostA&host=hostB'
 
 =head1 DESCRIPTION
 
-You shouldn't be calling this directly, but be using the "ack" method in L<Opsview::REST>.
+You shouldn't be calling this directly, but be using the "recheck" method in L<Opsview::REST>.
 
 =head1 AUTHOR
 

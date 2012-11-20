@@ -13,6 +13,7 @@ lib/Opsview/REST/Downtime.pm
 lib/Opsview/REST/Event.pm
 lib/Opsview/REST/Exception.pm
 lib/Opsview/REST/QueryBuilder.pm
+lib/Opsview/REST/Recheck.pm
 lib/Opsview/REST/Status.pm
 t/01-opsview-rest.t
 t/02-status.t
@@ -22,4 +23,5 @@ t/05-events.t
 t/06-acknowledgements.t
 t/07-singleobject.t
 t/08-multiobject.t
+t/09-recheck.t
 t/lib/Opsview/REST/TestUtils.pm
