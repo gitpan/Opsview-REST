@@ -1,6 +1,6 @@
 package Opsview::REST::Acknowledge;
 {
-  $Opsview::REST::Acknowledge::VERSION = '0.008';
+  $Opsview::REST::Acknowledge::VERSION = '0.009';
 }
 
 use Moo;

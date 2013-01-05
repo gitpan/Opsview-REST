@@ -12,6 +12,7 @@ my %WriteMakefileArgs = (
   "ABSTRACT" => "Interface to the Opsview REST API",
   "AUTHOR" => "Miquel Ruiz <mruiz\@cpan.org>",
   "BUILD_REQUIRES" => {
+    "Test::Deep" => 0,
     "Test::Exception" => 0,
     "Test::More" => 0
   },
@@ -28,7 +29,7 @@ my %WriteMakefileArgs = (
     "Moo" => 0,
     "URI" => 0
   },
-  "VERSION" => "0.008",
+  "VERSION" => "0.009",
   "test" => {
     "TESTS" => "t/*.t"
   }

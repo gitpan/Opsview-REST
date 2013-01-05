@@ -1,10 +1,11 @@
 package Opsview::REST::QueryBuilder;
 {
-  $Opsview::REST::QueryBuilder::VERSION = '0.008';
+  $Opsview::REST::QueryBuilder::VERSION = '0.009';
 }
 
 use Moo::Role;
 use URI;
+use URI::QueryParam;
 
 requires 'base';
 

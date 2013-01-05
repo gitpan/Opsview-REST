@@ -1,6 +1,6 @@
 package Opsview::REST;
 {
-  $Opsview::REST::VERSION = '0.008';
+  $Opsview::REST::VERSION = '0.009';
 }
 
 use Moo;
@@ -507,8 +507,6 @@ L<http://docs.opsview.com/doku.php?id=opsview-community:restapi:config>
 =item *
 
 L<http://www.opsview.org/>
-
-L<http://docs.opsview.com/doku.php?id=opsview-community:restapi>
 
 =item *
 
