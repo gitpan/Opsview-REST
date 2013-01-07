@@ -1,6 +1,6 @@
 package Opsview::REST::APICaller;
 {
-  $Opsview::REST::APICaller::VERSION = '0.009';
+  $Opsview::REST::APICaller::VERSION = '0.010';
 }
 
 use Moo::Role;

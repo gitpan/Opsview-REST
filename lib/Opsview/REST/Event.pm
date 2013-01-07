@@ -1,6 +1,6 @@
 package Opsview::REST::Event;
 {
-  $Opsview::REST::Event::VERSION = '0.009';
+  $Opsview::REST::Event::VERSION = '0.010';
 }
 
 use Moo;

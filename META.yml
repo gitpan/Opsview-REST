@@ -24,4 +24,4 @@ resources:
   bugtracker: https://github.com/miquelruiz/Opsview-REST/issues
   homepage: http://metacpan.org/release/Opsview-REST/
   repository: git://github.com/miquelruiz/Opsview-REST.git
-version: 0.009
+version: 0.010
