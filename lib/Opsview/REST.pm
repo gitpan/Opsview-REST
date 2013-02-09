@@ -1,6 +1,6 @@
 package Opsview::REST;
 {
-  $Opsview::REST::VERSION = '0.010';
+  $Opsview::REST::VERSION = '0.011';
 }
 
 use Moo;
@@ -347,6 +347,11 @@ Username to login as.
 
 Either the pass or the auth_tkt MUST be passed. It will die horribly if none
 of these are found.
+
+=item ua
+
+A user agent object can be provided here. It should be an L<HTTP::Tiny>
+subclass.
 
 =back
 

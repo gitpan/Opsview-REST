@@ -1,6 +1,6 @@
 package Opsview::REST::Recheck;
 {
-  $Opsview::REST::Recheck::VERSION = '0.010';
+  $Opsview::REST::Recheck::VERSION = '0.011';
 }
 
 use Moo;

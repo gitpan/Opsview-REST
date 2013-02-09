@@ -19,9 +19,10 @@ requires:
   HTTP::Tiny: 0.014
   JSON::XS: 0
   Moo: 0
+  Try::Tiny: 0
   URI: 0
 resources:
   bugtracker: https://github.com/miquelruiz/Opsview-REST/issues
   homepage: http://metacpan.org/release/Opsview-REST/
   repository: git://github.com/miquelruiz/Opsview-REST.git
-version: 0.010
+version: 0.011

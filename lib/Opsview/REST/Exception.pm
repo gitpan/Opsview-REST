@@ -1,15 +1,20 @@
 package Opsview::REST::Exception;
 {
-  $Opsview::REST::Exception::VERSION = '0.010';
+  $Opsview::REST::Exception::VERSION = '0.011';
 }
 
 use Moo;
 
 use overload
     '""' => sub {
-        join ': ',
-            join (' ', $_[0]->status, $_[0]->reason),
-            $_[0]->message || '', $_[0]->detail || '';
+        my $error = join (' ', $_[0]->status, $_[0]->reason);
+        my $msg = $_[0]->message; chomp $msg if $msg;
+        my $dtl = $_[0]->detail;  chomp $dtl if $dtl;
+
+        $error = join ': ', $error, $msg if ($msg);
+        $error = join '; ', $error, $dtl if ($dtl);
+
+        return "$error\n";
     },
     fallback => 1;
 
