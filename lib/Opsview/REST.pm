@@ -1,6 +1,6 @@
 package Opsview::REST;
 {
-  $Opsview::REST::VERSION = '0.011';
+  $Opsview::REST::VERSION = '0.012';
 }
 
 use Moo;
@@ -366,7 +366,7 @@ Convenience method to request the "status" part of the API. C<$endpoint> is
 the endpoint to send the query to. C<%args> is a hash which will get properly
 translated to URL arguments.
 
-More info: L<http://docs.opsview.com/doku.php?id=opsview-community:restapi:status>
+More info: L<http://docs.opsview.com/doku.php?id=opsview-core:restapi:status>
 
 =head2 downtimes
 
@@ -376,7 +376,7 @@ More info: L<http://docs.opsview.com/doku.php?id=opsview-community:restapi:statu
 
 Downtime related methods.
 
-More info: L<http://docs.opsview.com/doku.php?id=opsview-community:restapi:downtimes>
+More info: L<http://docs.opsview.com/doku.php?id=opsview-core:restapi:downtimes>
 
 =head2 events( [ %args ] )
 
@@ -398,13 +398,13 @@ a host or service in a failure state where 'alert every failure' is enabled
 
 =back
 
-More info: L<http://docs.opsview.com/doku.php?id=opsview-community:restapi:event>
+More info: L<http://docs.opsview.com/doku.php?id=opsview-core:restapi:event>
 
 =head2 acknowledge( [ %args ] )
 
 Acknowledge problems.
 
-More info: L<http://docs.opsview.com/doku.php?id=opsview-community:restapi:acknowledge>
+More info: L<http://docs.opsview.com/doku.php?id=opsview-core:restapi:acknowledge>
 
 =head2 acknowledge_list
 
@@ -417,20 +417,20 @@ Initiates a synchronous reload. Be careful: if your opsview reload takes more
 than 60 seconds to run, this call will time out. The returned data contains
 the info of the reload.
 
-More info: L<http://docs.opsview.com/doku.php?id=opsview-community:restapi#initiating_an_opsview_reload>
+More info: L<http://docs.opsview.com/doku.php?id=opsview-core:restapi#initiating_an_opsview_reload>
 
 =head2 reload_info
 
 Get status of reload.
 
-More info: L<http://docs.opsview.com/doku.php?id=opsview-community:restapi#initiating_an_opsview_reload>
+More info: L<http://docs.opsview.com/doku.php?id=opsview-core:restapi#initiating_an_opsview_reload>
 
 =head2 recheck( [ %args ] )
 
 Recheck services or hosts asynchronously. It returns info about the number of
 hosts and services that will be rechecked.
 
-More info: L<http://docs.opsview.com/doku.php?id=opsview-community:restapi:recheck>
+More info: L<http://docs.opsview.com/doku.php?id=opsview-core:restapi:recheck>
 
 =head2 Config methods for single objects
 
@@ -503,7 +503,7 @@ with a single call:
 To know which fields are accepted for each type of object, the format of the
 responses, and additional info:
 
-L<http://docs.opsview.com/doku.php?id=opsview-community:restapi:config>
+L<http://docs.opsview.com/doku.php?id=opsview-core:restapi:config>
 
 =head1 SEE ALSO
 
@@ -515,7 +515,7 @@ L<http://www.opsview.org/>
 
 =item *
 
-L<Opsview REST API Documentation|http://docs.opsview.com/doku.php?id=opsview-community:restapi>
+L<Opsview REST API Documentation|http://docs.opsview.com/doku.php?id=opsview-core:restapi>
 
 =back
 

@@ -1,6 +1,6 @@
 package Opsview::REST::Config;
 {
-  $Opsview::REST::Config::VERSION = '0.011';
+  $Opsview::REST::Config::VERSION = '0.012';
 }
 
 use Moo;
