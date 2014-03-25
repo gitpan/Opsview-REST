@@ -1,6 +1,6 @@
 package Opsview::REST::APICaller;
 {
-  $Opsview::REST::APICaller::VERSION = '0.012';
+  $Opsview::REST::APICaller::VERSION = '0.013';
 }
 
 use Moo::Role;
@@ -8,7 +8,7 @@ use Moo::Role;
 use Carp;
 
 use Try::Tiny;
-use JSON::XS ();
+use JSON ();
 use HTTP::Tiny 0.014;
 
 has ua => (
@@ -28,7 +28,7 @@ has headers => (
 
 has json => (
     is      => 'ro',
-    default => sub { JSON::XS->new },
+    default => sub { JSON->new },
 );
 
 sub get {

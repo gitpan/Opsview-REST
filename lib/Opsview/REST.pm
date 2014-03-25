@@ -1,6 +1,6 @@
 package Opsview::REST;
 {
-  $Opsview::REST::VERSION = '0.012';
+  $Opsview::REST::VERSION = '0.013';
 }
 
 use Moo;
@@ -49,10 +49,10 @@ has [qw/ pass auth_tkt /] => (
         # GET - list object type. Can pass in search attributes
         *{__PACKAGE__ . '::get_' . $obj_type . 's'} = sub {
             my $self = shift;
-            require JSON::XS;
+            require JSON;
             my $uri = Opsview::REST::Config->new(
                 $obj_type,
-                json_filter => JSON::XS::encode_json({@_}),
+                json_filter => JSON::encode_json({@_}),
             );
             return $self->get($uri->as_string);
 

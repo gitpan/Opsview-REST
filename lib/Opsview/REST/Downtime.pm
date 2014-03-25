@@ -1,6 +1,6 @@
 package Opsview::REST::Downtime;
 {
-  $Opsview::REST::Downtime::VERSION = '0.012';
+  $Opsview::REST::Downtime::VERSION = '0.013';
 }
 
 use Moo;

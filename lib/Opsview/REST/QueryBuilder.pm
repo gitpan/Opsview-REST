@@ -1,6 +1,6 @@
 package Opsview::REST::QueryBuilder;
 {
-  $Opsview::REST::QueryBuilder::VERSION = '0.012';
+  $Opsview::REST::QueryBuilder::VERSION = '0.013';
 }
 
 use Moo::Role;
